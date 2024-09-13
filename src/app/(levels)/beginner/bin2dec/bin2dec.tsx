@@ -1,14 +1,13 @@
 'use client'
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 
 export default function Bin2Dec() {
   const [bin, setBin] = useState<string>("");
   const [dec, setDec] = useState<number | null>(null);
   const [alert, setAlert] = useState<boolean>(false)
 
-
-  function handleBinChange(e: ChangeEvent<HTMLInputElement>) {
+  const handleBinChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     const val = e.target.value
     if (val === '' || /^[01]+$/.test(val)) {
@@ -19,7 +18,7 @@ export default function Bin2Dec() {
     } else {
       setAlert(true)
     }
-  }
+  }, [])
 
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
