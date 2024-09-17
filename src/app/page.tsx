@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 font-[family-name:var(--font-geist-sans)] bg-slate-700 text-white">
       <header className="pb-4">
         <h1 className="text-4xl">Challenges</h1>
       </header>
-      <main className="grid grid-cols-3 w-full h-full max-w-screen-lg gap-2">
+      <main className="grid md:grid-cols-3 w-full h-full max-w-screen-lg gap-2">
         <div className="flex items-center justify-center bg-green-700 rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_15px_5px_rgba(255,255,255,0.8)]">
           <Link href="/beginner" className="text-2xl">
             BEGINNER
