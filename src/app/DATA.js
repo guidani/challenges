@@ -4,6 +4,10 @@ export const CHALLENGES_DATA = {
       name: "bin2dec",
       link: "/bin2dec",
     },
+    {
+      name: "border radius previewer",
+      link: "/borderRadiusPreviewer",
+    },
   ],
   intermediate: [],
   hard: [],
