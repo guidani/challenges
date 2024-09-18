@@ -14,9 +14,6 @@ const rangeReducer = (state: Array<number>, action: { type: string, index: numbe
 };
 
 export default function Page() {
-
-  // const [rangeValues, dispatch] = useReducer(rangeReducer, [0, 0, 0, 0]);
-  // Inicializa o reducer com um objeto contendo 4 valores
   const [rangeValues, dispatch] = useReducer(rangeReducer, {
     top_right: 0,
     top_left: 0,
@@ -27,22 +24,27 @@ export default function Page() {
   const handleInputChange = (key, value) => {
     dispatch({ type: 'SET_VALUE', key, value });
   };
+
+  const borderRadiusStyle = `${rangeValues.top_left}% ${rangeValues.top_right}% ${rangeValues.bottom_right}% ${rangeValues.bottom_left}%`;
+
   return (
     <main className="flex flex-col items-center bg-slate-700 text-white">
       <h1 className="text-4xl font-bold p-4">Border Radius Previewer</h1>
-      <div>
+      <div className="grid grid-cols-3">
         <label>Top Right:</label>
         <input
           type="range"
           min="0"
           max="100"
           value={rangeValues.top_right}
+
           onChange={(e) => handleInputChange('top_right', Number(e.target.value))}
+
         />
-        <span>Valor: {rangeValues.top_right}</span>
+        <span>{rangeValues.top_right} %</span>
       </div>
 
-      <div>
+      <div className="grid grid-cols-3">
         <label>Top Left:</label>
         <input
           type="range"
@@ -51,10 +53,10 @@ export default function Page() {
           value={rangeValues.top_left}
           onChange={(e) => handleInputChange('top_left', Number(e.target.value))}
         />
-        <span>Valor: {rangeValues.top_left}</span>
+        <span>{rangeValues.top_left} %</span>
       </div>
 
-      <div>
+      <div className="grid grid-cols-3">
         <label>Bottom Right:</label>
         <input
           type="range"
@@ -63,10 +65,10 @@ export default function Page() {
           value={rangeValues.bottom_right}
           onChange={(e) => handleInputChange('bottom_right', Number(e.target.value))}
         />
-        <span>Valor: {rangeValues.bottom_right}</span>
+        <span>{rangeValues.bottom_right} %</span>
       </div>
 
-      <div>
+      <div className="grid grid-cols-3">
         <label>Bottom Left:</label>
         <input
           type="range"
@@ -75,12 +77,17 @@ export default function Page() {
           value={rangeValues.bottom_left}
           onChange={(e) => handleInputChange('bottom_left', Number(e.target.value))}
         />
-        <span>Valor: {rangeValues.bottom_left}</span>
+        <span>{rangeValues.bottom_left} %</span>
+      </div>
+      <div className="mt-4"></div>
+      <div className={"w-64 h-64 border-white border-2"} style={{ borderRadius: borderRadiusStyle }}>
+
       </div>
 
-      <div className="square w-64 h-64 border-white border-2">
-
-      </div>
+      <h2 className="mt-4">CSS Output:</h2>
+      <pre>
+        <p className="bg-black p-2"><span className="text-purple-500">boder-radius</span>: {`${rangeValues.top_left}% ${rangeValues.top_right}% ${rangeValues.bottom_right}% ${rangeValues.bottom_left}%;`}</p>
+      </pre>
     </main>
   )
 }
