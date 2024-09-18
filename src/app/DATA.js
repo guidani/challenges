@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 export const CHALLENGES_DATA = {
   beginner: [
     {
@@ -8,6 +10,10 @@ export const CHALLENGES_DATA = {
       name: "border radius previewer",
       link: "/borderRadiusPreviewer",
     },
+    {
+      name: "calculator",
+      link: "/calculator"
+    }
   ],
   intermediate: [],
   hard: [],
