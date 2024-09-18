@@ -1,5 +1,3 @@
-import { link } from "fs";
-
 export const CHALLENGES_DATA = {
   beginner: [
     {
@@ -12,8 +10,8 @@ export const CHALLENGES_DATA = {
     },
     {
       name: "calculator",
-      link: "/calculator"
-    }
+      link: "/calculator",
+    },
   ],
   intermediate: [],
   hard: [],
