@@ -12,6 +12,10 @@ export const CHALLENGES_DATA = {
       name: "calculator",
       link: "/calculator",
     },
+    {
+      name: "christmas Lights",
+      link: "/christmaslights",
+    },
   ],
   intermediate: [],
   hard: [],
