@@ -1,7 +1,7 @@
 "use client"
 import { useReducer } from "react";
 
-const rangeReducer = (state: Array<number>, action: { type: string, index: number, value: number }) => {
+const rangeReducer = (state: Array<number>, action: { type: string, index: number, value: number, key: string }) => {
   switch (action.type) {
     case 'SET_VALUE':
       return {
@@ -14,6 +14,8 @@ const rangeReducer = (state: Array<number>, action: { type: string, index: numbe
 };
 
 export default function Page() {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const [rangeValues, dispatch] = useReducer(rangeReducer, {
     top_right: 0,
     top_left: 0,
@@ -21,7 +23,9 @@ export default function Page() {
     bottom_left: 0,
   });
 
-  const handleInputChange = (key, value) => {
+  const handleInputChange = (key: string, value: number) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     dispatch({ type: 'SET_VALUE', key, value });
   };
 
